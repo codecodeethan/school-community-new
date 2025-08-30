@@ -27,7 +27,7 @@ interface NavigationItemsProps {
 
 const sidebarItems: SidebarItem[] = [
   { id: 'home', label: 'HOME', icon: Home, href: '/' },
-  { id: 'students', label: 'STUDENTS', icon: Users, href: '/students' },
+  { id: 'sc_members', label: 'SC MEMBERS', icon: Users, href: '/sc' },
   { id: 'courses', label: 'COURSES', icon: BookOpen, href: '/courses' },
   { id: 'schedule', label: 'SCHEDULE', icon: Calendar, href: '/schedule' },
   { id: 'messages', label: 'MESSAGES', icon: MessageSquare, href: '/messages' },
