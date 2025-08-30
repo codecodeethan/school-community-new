@@ -72,12 +72,6 @@ export const NON_LOGGED_IN_MENU_ITEMS: MenuItem[] = [
     action: 'login'
   },
   {
-    id: 'signup',
-    label: 'SIGN UP',
-    icon: 'UserPlus',
-    action: 'signup'
-  },
-  {
     id: 'divider1',
     label: '',
     action: '',

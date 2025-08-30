@@ -1,13 +1,15 @@
 'use client'
 
 import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import NavbarContainer from './NavbarContainer'
 import Logo from './Logo'
 import UserDropdown from './UserDropdown'
-
+import { useAuthStore } from '@/Stores/authStore'
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const router = useRouter()
+  const { isLoggedIn } = useAuthStore()
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false)
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const [isThemeDropdownOpen, setIsThemeDropdownOpen] = useState(false)
@@ -16,6 +18,18 @@ const Navbar = () => {
     console.log('Menu action:', action)
     
     switch (action) {
+      case 'login':
+        router.push('/login')
+        setIsUserDropdownOpen(false)
+        setIsLanguageDropdownOpen(false)
+        setIsThemeDropdownOpen(false)
+        return
+      case 'logout':
+        // 로그아웃은 UserDropdown에서 직접 처리
+        setIsUserDropdownOpen(false)
+        setIsLanguageDropdownOpen(false)
+        setIsThemeDropdownOpen(false)
+        return
       case 'language':
         setIsLanguageDropdownOpen(!isLanguageDropdownOpen)
         setIsThemeDropdownOpen(false)
